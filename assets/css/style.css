@@ -10,7 +10,7 @@
 
 :root {
 
-    /* Paleta de Cores - Purple */
+    /* Paleta de Cores - Pink */
 
     --pink-50: #FAF0F4;
 
@@ -100,7 +100,10 @@
 
     --transition-default: all 0.3s ease;
 
+
 }
+
+
 
 html{
     scroll-behavior: smooth;
@@ -291,7 +294,7 @@ padding: var(--spacing-xs);
 
 /* Animação Flutuante */
 
-@keyframes float {
+/* @keyframes float {
   0%, 100% {
     transform: translateY(0);
   }
@@ -302,7 +305,9 @@ padding: var(--spacing-xs);
 
 .float-animation {
   animation: float 3s ease-in-out infinite;
-}
+} */
+
+
 
 /* Seção About */
 
@@ -315,6 +320,22 @@ padding: var(--spacing-xs);
   background-color: var(--gray-200);
 }
 
+/* Efeito About */
+
+.about-container {
+  background: linear-gradient(
+    135deg,
+    var(--pink-50),
+    var(--pink-100),
+    var(--pink-50)
+  );
+  background-size: 200% 200%;
+  transition: background-position 0.5s ease;
+}
+
+.about-container:hover {
+  background-position: right;
+}
 /* About Image */
 
 .about-image {
@@ -323,9 +344,10 @@ padding: var(--spacing-xs);
 
 .about-image img {
   width: 100%;
-  border: 0.35rem solid var(--pink-800);
+  border: 0.35rem solid var(--gray-200);
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-lg);
+  box-shadow: var(--gray-400) 0px 0px 15px;
 }
 /******************************************/
 
@@ -413,6 +435,8 @@ padding: var(--spacing-xs);
 
 .project-card:hover {
     box-shadow: var(--shadow-lg);
+    transform: translateY(-0.25rem);
+    box-shadow: var(--pink-900) 0px 0px 15px;
 }
 
 .project-image {
@@ -421,7 +445,7 @@ padding: var(--spacing-xs);
     justify-content: center;
     width: 100%;
     height: 10rem;
-    background: linear-gradient(135deg, var(--pink-50) 0%, var(--pink-100) 100%);
+    background: linear-gradient(135deg, var(--pink-50) 0%, var(--pink-00) 100%);
 }
 
 .project-image img {
@@ -450,17 +474,30 @@ padding: var(--spacing-xs);
 }
 
 /* brilho neon por cima */
+
 .project-image::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, transparent, #ca2363);
+
+    background: linear-gradient(
+        135deg,
+        transparent,
+        var(--pink-500),
+        transparent
+    );
+
+    background-size: 200% 200%;
     opacity: 0;
-    transition: opacity 0.3s ease;
+
+    transition: 
+        opacity 0.3s ease,
+        background-position 0.5s ease;
 }
 
 .project-card:hover .project-image::after {
-    opacity: 0.2;
+    opacity: 0.3;
+    background-position: right;
 }
 
 /* Fim efeito de zoom e brilho */
@@ -1162,3 +1199,4 @@ footer {
 }
 
 }
+
