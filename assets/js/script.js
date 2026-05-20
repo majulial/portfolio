@@ -30,6 +30,7 @@ async function getAboutGithub() {
         const perfil = await resposta.json();
 
         about.innerHTML = '';
+        iniciarAnimacaoAbout();
 
         about.innerHTML = ` <!-- Imagem da Seção About -->
       <figure class="about-image">
@@ -81,6 +82,7 @@ para criar projetos com propósito e impacto.</p>
     }catch (error) {
         console.error('Erro ao obter dados do GitHub:', error);
     }
+    
 }
 
 async function getProjectsGithub() {
@@ -186,7 +188,6 @@ async function getProjectsGithub() {
     }
 }
 
-    iniciarSwiper();
 
 
 function iniciarSwiper() {
@@ -301,8 +302,104 @@ formulario.addEventListener('submit', function(event) {
 
 // Executar a função ao carregar o script
 getProjectsGithub();
+iniciarSwiper();
 
 
 
 
 getAboutGithub();
+function criarFlor(){
+
+const flor=document.createElement("div");
+
+flor.classList.add("flower");
+
+const flores=[
+"✦",
+"❀",
+"♡",
+"✿"
+];
+
+flor.innerHTML=
+flores[Math.floor(Math.random()*flores.length)];
+
+flor.style.left=Math.random()*100+"vw";
+
+flor.style.fontSize=
+Math.random()*15+10+"px";
+
+flor.style.animationDuration=
+Math.random()*10+8+"s";
+
+document
+.querySelector(".flowers-container")
+.appendChild(flor);
+
+setTimeout(()=>{
+
+flor.remove();
+
+},12000);
+
+}
+
+setInterval(criarFlor,1200);
+
+// Fim animação body
+
+
+// Efeito digitação código
+
+
+
+const codeText = `<span class="pink">const</span> julia = {
+
+   <span class="purple">criatividade</span>: true,
+
+   <span class="purple">frontend</span>: true,
+
+   <span class="purple">café</span>: true,
+
+   <span class="purple">aprendendo</span>: "sempre"
+
+}`;
+
+let index = 0;
+
+function typeCode(){
+
+    if(index < codeText.length){
+
+        codeElement.innerHTML =
+        codeText.slice(0,index) + `<span class="cursor">|</span>`;
+
+        index++;
+
+        setTimeout(typeCode,35);
+
+    }
+
+}
+
+typeCode();
+
+function iniciarAnimacaoAbout() {
+    const aboutSection = document.querySelector('.about-container');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    observer.observe(aboutSection);
+}
+// Fim efeito digitação código
+
+// Dark Mode
+
