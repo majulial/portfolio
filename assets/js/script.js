@@ -56,7 +56,7 @@ para criar projetos com propósito e impacto.</p>
           <!-- Links -->
           <div class="buttons-container">
             <a href="${perfil.html_url}" target="_blank" class="botao">GitHub</a>
-            <a href="#" target="_blank" class="botao-outline">Currículo</a>
+            <a href="https://drive.google.com/file/d/1t1RgE4IVwG5OwXoGrlcCGzQAMUL0TGdT/view?usp=sharing" target="_blank" class="botao-outline">Currículo</a>
           </div>
 
           <!-- Dados - GitHub -->
@@ -400,6 +400,3 @@ function iniciarAnimacaoAbout() {
     observer.observe(aboutSection);
 }
 // Fim efeito digitação código
-
-// Dark Mode
-
